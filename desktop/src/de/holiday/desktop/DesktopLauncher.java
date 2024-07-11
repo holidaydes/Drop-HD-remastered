@@ -1,19 +1,15 @@
 package de.holiday.desktop;
 
-import com.badlogic.gdx.Files;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import de.holiday.dropgame.core.Drop;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
-		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.title = "Drop HD remastered";
-		config.width = 1360;
-		config.height = 768;
-		config.addIcon("icons/drop_16x16.png", Files.FileType.Internal);
-		config.addIcon("icons/drop_32x32.png", Files.FileType.Internal);
-		config.addIcon("icons/drop_128x128.png", Files.FileType.Internal);
-		new LwjglApplication(new Drop(), config);
+		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
+		config.setTitle("Drop HD remastered");
+		config.setWindowedMode(1360, 768);
+		config.setWindowIcon("icons/drop_16x16.png", "icons/drop_32x32.png", "icons/drop_128x128.png");
+		new Lwjgl3Application(new Drop(), config);
 	}
 }
