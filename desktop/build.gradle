@@ -7,24 +7,26 @@ sourceSets.main.resources.srcDirs = ["../core/assets"]
 project.ext.mainClassName = "de.holiday.desktop.DesktopLauncher"
 project.ext.assetsDir = new File("../core/assets")
 
-task run(dependsOn: classes, type: JavaExec) {
+tasks.register('run', JavaExec) {
+    dependsOn classes
     main = project.mainClassName
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
     workingDir = project.assetsDir
-    ignoreExitValue = true
+    ignoreExitValue = true as JavaExecSpec
 }
 
-task debug(dependsOn: classes, type: JavaExec) {
+tasks.register('debug', JavaExec) {
+    dependsOn classes
     main = project.mainClassName
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
     workingDir = project.assetsDir
-    ignoreExitValue = true
-    debug = true
+    ignoreExitValue = true as JavaExecSpec
+    debug = true as JavaExec
 }
 
-task dist(type: Jar) {
+tasks.register('dist', Jar) {
     manifest {
         attributes 'Main-Class': project.mainClassName
     }
