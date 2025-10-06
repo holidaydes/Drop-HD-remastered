@@ -1,6 +1,5 @@
 apply plugin: "java"
 
-sourceCompatibility = 15
 sourceSets.main.java.srcDirs = [ "src/" ]
 sourceSets.main.resources.srcDirs = ["../core/assets"]
 
@@ -27,6 +26,7 @@ tasks.register('debug', JavaExec) {
 }
 
 tasks.register('dist', Jar) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes 'Main-Class': project.mainClassName
     }

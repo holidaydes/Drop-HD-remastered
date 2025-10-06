@@ -1,5 +1,4 @@
 buildscript {
-    
 
     repositories {
         mavenLocal()
@@ -9,7 +8,6 @@ buildscript {
         google()
     }
     dependencies {
-        
 
     }
 }
@@ -19,7 +17,7 @@ allprojects {
     version = '1.0.0'
     ext {
         appName = "drop-hd-remastered"
-        gdxVersion = '1.12.1'
+        gdxVersion = '1.13.5'
     }
 
     repositories {
@@ -33,7 +31,7 @@ allprojects {
 
 project(":desktop") {
     apply plugin: "java-library"
-
+    sourceCompatibility = 21
 
     dependencies {
         implementation project(":core")
@@ -44,11 +42,13 @@ project(":desktop") {
 
 project(":core") {
     apply plugin: "java-library"
-
+    sourceCompatibility = 21
 
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+        api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
     }
 }
+
+
