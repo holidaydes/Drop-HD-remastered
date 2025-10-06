@@ -10,8 +10,8 @@ Enjoy to the game. :)
 
 ### Prerequisites
 
-* Java SE Runtime Environment 8 (x64)
-* Java SE Development Kit 8
+* Java SE Runtime Environment 21 (x64)
+* Java SE Development Kit 21
 * Eclipse / IntelliJ IDEA IDE
 * Gradle (if IDE does not contain it)
 
